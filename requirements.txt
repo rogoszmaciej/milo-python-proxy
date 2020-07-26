@@ -1,0 +1,4 @@
+django-environ
+django==2.2
+django-bootstrap4
+requests
