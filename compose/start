@@ -4,4 +4,6 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-
+proxy --port 8899 \
+--hostname 0.0.0.0 \
+--plugins proxy_server.ProxyPool

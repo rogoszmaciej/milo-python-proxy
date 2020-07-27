@@ -1,9 +1,10 @@
 FROM python:3.8.1-alpine
 
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONPATH "${PYTHONPATH}:/proxy_server"
 
 RUN apk update \
-
+  && apk add --virtual .build-deps make \
   # Decrease image size by remove cachepip
   && rm -rf /var/cache/apk/*
 

@@ -1,6 +1,6 @@
 # Rotating  IPs python script
 
-Custom proxy server enabling to set separate proxies for each tab in a browser.
+Custom proxy server setting separate proxies for each tab in a browser.
 
 ## How does it work?
 Each HTTP request from the browser will be redirected by `base_proxy.py` script to a Django application.
