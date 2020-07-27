@@ -1,0 +1,20 @@
+version: '3'
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: ./compose/Dockerfile
+      args:
+        USER_ID: 1000
+        USER_GROUP: 1000
+    image: proxy_server
+    volumes:
+      - .:/app
+    ports:
+      - "8899:8899"
+    command: /start
