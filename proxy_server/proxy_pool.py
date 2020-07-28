@@ -46,6 +46,8 @@ class ProxyPool(ProxyPoolPlugin):
 
     @classmethod
     def _can_use_proxy(cls, proxy: Dict[str, Tuple[str, int]]) -> bool:
+        # TODO: Add time after which the proxy can be used again
+
         proxy_name = cls._get_proxy_name(proxy=proxy)
         if proxy_name not in cls._load_used_proxies():
             return True
@@ -83,6 +85,8 @@ class ProxyPool(ProxyPoolPlugin):
         """
 
         while self.conn is None:
+            # TODO: When working header modifying Add on
+            # TODO: Add proxy selecting by browser tab id
             proxy = random.choice(self.UPSTREAM_PROXY_POOL)
             if self._can_use_proxy(proxy=proxy):
                 self.conn = self._new_socket_connection(proxy=proxy)
